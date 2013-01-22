@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+//Delegate methods for responding to TabBar events
+@protocol METabBarDelegate <NSObject>
+
+//Handle tab bar touch events, sending the index of the selected tab
+- (void)tabWasSelected:(NSInteger)index;
+
+@end
+
+
+
 @interface METabBarView : UIView
+
+@property (nonatomic, assign) NSObject<METabBarDelegate> *delegate;
+@property (nonatomic, assign) UIButton *currentButton;
+
+- (IBAction)touchButton:(id)sender;
 
 @end
