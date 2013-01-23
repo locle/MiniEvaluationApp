@@ -9,7 +9,7 @@
 #import "MEEmployee.h"
 
 
-NSString* const kASCEmployeeId = @"oid";
+NSString* const kASCEmployeeUserName = @"userName";
 NSString* const kASCVisitCount = @"visitCount";
 
 
@@ -23,12 +23,29 @@ NSString* const kASCVisitCount = @"visitCount";
 }
 
 
++ (MEEmployee *)highestVisitedEmployeeFromDataArray:(NSArray *)employeeList {
+    MEEmployee *highestVisittedEmployee;
+    if ([employeeList.lastObject isKindOfClass:[MEEmployee class]]) {
+        highestVisittedEmployee = employeeList.lastObject;
+    }
+    
+    for (id object in employeeList) {
+        if ([object isKindOfClass:[MEEmployee class]]) {
+            MEEmployee *employee = object;
+            if (employee.visitCount > highestVisittedEmployee.visitCount) {
+                highestVisittedEmployee = employee;
+            }
+        }
+    }
+    return highestVisittedEmployee;
+}
+
 + (NSDictionary *)employeeListFromDataArray:(NSArray *)dataArray
 {
     NSMutableDictionary *mutableEmployeeList = [[NSMutableDictionary alloc] init];
     for (NSDictionary *dict in dataArray) {
         MEEmployee *employee = [MEEmployee employeeFromDictionary:dict];
-        [mutableEmployeeList setObject:employee forKey:employee.oid];
+        [mutableEmployeeList setObject:employee forKey:employee.userName];
     }
     return [mutableEmployeeList copy];
     
@@ -37,7 +54,6 @@ NSString* const kASCVisitCount = @"visitCount";
 + (MEEmployee *)employeeFromDictionary:(NSDictionary *)dictionary {
     MEEmployee *employee = [[MEEmployee alloc] init];
     
-    employee.oid = [[dictionary objectForKey:@"_id"] objectForKey:@"$oid"];
     employee.userName = [dictionary objectForKey:@"userName"];
     employee.name = [dictionary objectForKey:@"name"];
     employee.role = [dictionary objectForKey:@"role"];
@@ -47,7 +63,9 @@ NSString* const kASCVisitCount = @"visitCount";
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"M/d/yy HH:mm";
     employee.timeStamp = [dateFormatter dateFromString:[dictionary objectForKey:@"timeStamp"]];
-    
+    employee.gender = [dictionary objectForKey:@"gender"];
+    employee.imageLink = [dictionary objectForKey:@"image"];
+    employee.contact = [dictionary objectForKey:@"contact"];
     employee.visitCount = 0;
     
     return employee;
@@ -59,20 +77,20 @@ NSString* const kASCVisitCount = @"visitCount";
     if (!other || ![other isKindOfClass:[self class]])
         return NO;
     
-    return [self.oid isEqual:((MEEmployee *)other).oid];
+    return [self.userName isEqual:((MEEmployee *)other).userName];
 }
 
 
 #pragma mark - NSCoding implementation
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.oid forKey:kASCEmployeeId];
+    [aCoder encodeObject:self.userName forKey:kASCEmployeeUserName];
     [aCoder encodeObject:self.visitCount forKey:kASCVisitCount];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        _oid = [aDecoder decodeObjectForKey:kASCEmployeeId];
+        _userName = [aDecoder decodeObjectForKey:kASCEmployeeUserName];
         _visitCount = [aDecoder decodeObjectForKey:kASCVisitCount];
     }
     return self;

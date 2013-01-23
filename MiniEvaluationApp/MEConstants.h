@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString* const kExtendStaffAPIBaseURL;
 extern NSString* const kStaffAPIBaseURL;
-
+extern NSString* const kStaffAPILoadEmployeeList;
 
 extern NSString* const kCompanyURL;
 
+extern NSString* const kDefaultAvatarURL;

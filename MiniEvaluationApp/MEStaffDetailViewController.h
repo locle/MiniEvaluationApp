@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MEEmployee.h"
 
-@interface MEStaffDetailViewController : UITableViewController
+@interface MEStaffDetailViewController : UITableViewController <UINavigationControllerDelegate>
 
 @property (nonatomic, strong) MEEmployee *employee;
+@property (nonatomic, strong) UIImage *loadedAvatar;
+
 
 @end

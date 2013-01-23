@@ -30,7 +30,7 @@
 
 - (void)loadEmployeeListWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    [self getPath:@"/api/1/databases/2359media/collections/user?apiKey=50bc7070e4b07d292a90b92b"
+    [self getPath:kStaffAPILoadEmployeeList
        parameters:nil
           success:success
           failure:failure];

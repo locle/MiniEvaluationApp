@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -50,17 +50,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pW2-IF-bYb">
+                            <webView contentMode="scaleToFill" id="pW2-IF-bYb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="pW2-IF-bYb" firstAttribute="bottom" secondItem="1dY-ys-dVq" secondAttribute="bottom" type="default" id="B99-fs-oC0"/>
-                            <constraint firstItem="pW2-IF-bYb" firstAttribute="top" secondItem="1dY-ys-dVq" secondAttribute="top" type="default" id="BUt-T5-gah"/>
-                            <constraint firstItem="pW2-IF-bYb" firstAttribute="leading" secondItem="1dY-ys-dVq" secondAttribute="leading" type="default" id="uzN-ku-zSu"/>
-                            <constraint firstItem="pW2-IF-bYb" firstAttribute="trailing" secondItem="1dY-ys-dVq" secondAttribute="trailing" type="default" id="w1Q-5i-xNc"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="2359 Media" id="jfC-KL-hKm"/>
                     <connections>
@@ -75,54 +70,42 @@
         <scene sceneID="oos-Xu-I5V">
             <objects>
                 <tableViewController id="Qns-Ju-tSK" customClass="MEStaffViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="69" sectionHeaderHeight="22" sectionFooterHeight="22" id="s64-Jr-DhJ">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" id="s64-Jr-DhJ">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MELeftImageSubtitleListCell" rowHeight="69" id="bms-Kj-Zmx" customClass="MELeftImageSubtitleListCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="69"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MELeftImageSubtitleListCell" rowHeight="64" id="bms-Kj-Zmx" customClass="MELeftImageSubtitleListCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S46-4a-e3u">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="54" id="3ia-Dv-7lc"/>
-                                                <constraint firstAttribute="width" constant="51" id="aV4-4m-VyM"/>
-                                            </constraints>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_profile.png" id="S46-4a-e3u">
+                                            <rect key="frame" x="2" y="1" width="60" height="60"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9h-pQ-qr9">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="214" id="Ywb-m2-A0c"/>
-                                                <constraint firstAttribute="height" constant="21" id="hL9-RO-Vou"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L9h-pQ-qr9">
+                                            <rect key="frame" x="69" y="11" width="195" height="21"/>
                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                             <color key="textColor" red="1" green="0.65098039220000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QY-3b-ZDt">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="VHK-m8-7aV"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9QY-3b-ZDt">
+                                            <rect key="frame" x="69" y="25" width="195" height="21"/>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="hbx-rQ-de0">
+                                            <rect key="frame" x="270" y="18" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="L9h-pQ-qr9" firstAttribute="leading" secondItem="bms-Kj-Zmx" secondAttribute="leading" constant="74" id="01N-PL-QCc"/>
-                                    <constraint firstItem="L9h-pQ-qr9" firstAttribute="trailing" secondItem="9QY-3b-ZDt" secondAttribute="trailing" type="default" id="Giu-O8-SaG"/>
-                                    <constraint firstItem="L9h-pQ-qr9" firstAttribute="leading" secondItem="S46-4a-e3u" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Jyb-r8-yD4"/>
-                                    <constraint firstItem="9QY-3b-ZDt" firstAttribute="leading" secondItem="S46-4a-e3u" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="UkM-JO-5ZM"/>
-                                    <constraint firstItem="S46-4a-e3u" firstAttribute="centerY" secondItem="bms-Kj-Zmx" secondAttribute="centerY" type="default" id="VF5-sJ-YoU"/>
-                                    <constraint firstAttribute="bottom" secondItem="9QY-3b-ZDt" secondAttribute="bottom" constant="13" id="krY-Qy-AtZ"/>
-                                    <constraint firstItem="L9h-pQ-qr9" firstAttribute="top" secondItem="bms-Kj-Zmx" secondAttribute="top" constant="20" type="default" id="rQ6-ob-LAp"/>
-                                </constraints>
                                 <connections>
+                                    <outlet property="highestVisitedMark" destination="hbx-rQ-de0" id="6fq-HA-ciU"/>
                                     <outlet property="leftImage" destination="S46-4a-e3u" id="N2F-27-KJx"/>
                                     <outlet property="subTitle" destination="9QY-3b-ZDt" id="I3l-JF-gdy"/>
                                     <outlet property="title" destination="L9h-pQ-qr9" id="gEd-HI-HWJ"/>
@@ -150,14 +133,131 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StaffDetailCell" id="qsh-ii-BLX">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AvatarAndRoleCell" rowHeight="70" id="qsh-ii-BLX" customClass="MELeftImageRightDetailCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OHN-Gh-Njl">
+                                            <rect key="frame" x="78" y="20" width="232" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_profile.png" id="HMW-i6-hK3">
+                                            <rect key="frame" x="10" y="5" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="leftImage" destination="HMW-i6-hK3" id="vYY-RH-xOX"/>
+                                    <outlet property="rightDetail" destination="OHN-Gh-Njl" id="gPs-r3-AKj"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EmailCell" id="ekM-Nu-w4e" customClass="MELeftImageRightDetailCell">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="4Fs-7e-18T">
+                                            <rect key="frame" x="78" y="11" width="232" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" image="icon_email.png" id="XqY-fR-yXm">
+                                            <rect key="frame" x="41" y="11" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="rightDetail" destination="4Fs-7e-18T" id="VlG-wU-9Ds"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactCell" id="LpK-SO-lYE" customClass="MELeftImageRightDetailCell">
+                                <rect key="frame" x="0.0" y="136" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Tl-Mc-A4z">
+                                            <rect key="frame" x="78" y="11" width="232" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" image="icon_sms.png" id="NeT-8f-PRg">
+                                            <rect key="frame" x="40" y="11" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="rightDetail" destination="7Tl-Mc-A4z" id="Lut-BM-cat"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LikeCell" id="Iap-GQ-bax" customClass="MELeftImageRightDetailCell">
+                                <rect key="frame" x="0.0" y="180" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YnB-si-lMM">
+                                            <rect key="frame" x="78" y="11" width="232" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" image="icon_like.png" id="3Ea-Uy-Nai">
+                                            <rect key="frame" x="40" y="11" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="rightDetail" destination="YnB-si-lMM" id="lXm-cR-G4k"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DislikeCell" id="ttQ-sk-K4w" customClass="MELeftImageRightDetailCell">
+                                <rect key="frame" x="0.0" y="224" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" id="Tul-Oc-ymR">
+                                            <rect key="frame" x="78" y="11" width="232" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" image="icon_dislike.png" id="nSG-iw-rkF">
+                                            <rect key="frame" x="40" y="11" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="rightDetail" destination="Tul-Oc-ymR" id="Gby-hF-gr1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -193,7 +293,12 @@
     </scenes>
     <resources>
         <image name="icon_contacts.png" width="49" height="49"/>
+        <image name="icon_dislike.png" width="22" height="24"/>
+        <image name="icon_email.png" width="22" height="22"/>
         <image name="icon_info.png" width="49" height="49"/>
+        <image name="icon_like.png" width="22" height="24"/>
+        <image name="icon_profile.png" width="60" height="60"/>
+        <image name="icon_sms.png" width="22" height="22"/>
     </resources>
     <classes>
         <class className="MECompanyViewController" superclassName="UIViewController">
@@ -202,9 +307,17 @@
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
+        <class className="MELeftImageRightDetailCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MELeftImageRightDetailCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="leftImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="rightDetail" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="MELeftImageSubtitleListCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MELeftImageSubtitleListCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="highestVisitedMark" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="leftImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="subTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="title" candidateClass="UILabel"/>
@@ -218,9 +331,15 @@
         </class>
         <class className="METabBarController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/METabBarController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="customTabBarView" candidateClass="METabBarView"/>
+            </relationships>
         </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        <class className="METabBarView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/METabBarView.h"/>
+            <relationships>
+                <relationship kind="action" name="touchButton:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -10,16 +10,20 @@
 
 @interface MEEmployee : NSObject <NSCoding>
 
-@property (nonatomic, strong) NSString *oid;
 @property (nonatomic, strong) NSDate *timeStamp;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *role;
 @property (nonatomic, strong) NSString *like;
 @property (nonatomic, strong) NSString *dislike;
+@property (nonatomic, strong) NSString *gender;
+@property (nonatomic, strong) NSString *imageLink;
+@property (nonatomic, strong) NSString *contact;
 
 @property (nonatomic, strong) NSNumber *visitCount;
 
 + (NSDictionary *)employeeListFromDataArray:(NSArray *)dataArray;
+
++ (MEEmployee *)highestVisitedEmployeeFromDataArray:(NSArray *)employeeList;
 
 @end

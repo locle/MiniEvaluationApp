@@ -12,11 +12,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.tabBar.tintColor = [UIColor colorWithRed:235.0/255.0 green:119.0/255.0 blue:63.0/255.0 alpha:1.0];
-//    UIImageView *companyLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"middle_button.png"]];
-//    [self.view addSubview:companyLogo];
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -18,7 +18,7 @@
 @interface MEStaffViewController ()
 
 @property (nonatomic, strong) NSDictionary *employeeDictionary;
-
+@property (nonatomic, strong) MEEmployee *highestVisitedEmployee;
 @end
 
 NSString* const kVisitCountKey = @"visitCount";
@@ -39,12 +39,14 @@ NSString* const kVisitCountKey = @"visitCount";
                 
                 NSDictionary *storedCountCount = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:kVisitCountKey]];
                 for (MEEmployee *storedEmployee in storedCountCount.allValues) {
-                    MEEmployee *loaddedEmployee = [weakSelf.employeeDictionary objectForKey:storedEmployee.oid];
+                    MEEmployee *loaddedEmployee = [weakSelf.employeeDictionary objectForKey:storedEmployee.userName];
                     if (loaddedEmployee) {
                         loaddedEmployee.visitCount = storedEmployee.visitCount;
                     }
                 }
                 [weakSelf.tableView.pullToRefreshView stopAnimating];
+                
+                self.highestVisitedEmployee = [MEEmployee highestVisitedEmployeeFromDataArray:self.employeeDictionary.allValues];
                 [weakSelf.tableView reloadData];
             }
                                                                    failure:^(AFHTTPRequestOperation  *operation, NSError *error) {
@@ -88,7 +90,15 @@ NSString* const kVisitCountKey = @"visitCount";
     MEEmployee *employee = [self.employeeDictionary.allValues objectAtIndex:indexPath.row];
     cell.title.text = employee.name;
     cell.subTitle.text = employee.userName;
-    [cell.leftImage setImageWithURL:[NSURL URLWithString:@"http://sweetclipart.com/multisite/sweetclipart/files/chick_baby_cute_easter_blue.png"]];
+    if (employee.imageLink) {
+        [cell.leftImage setImageWithURL:[NSURL URLWithString:employee.imageLink]];
+    }
+    if ([employee isEqual:self.highestVisitedEmployee]) {
+        cell.highestVisitedMark.image = [UIImage imageNamed:@"icon_star.png"];
+        NSLog(@"%g", employee.visitCount.doubleValue);
+    } else {
+        cell.highestVisitedMark.image = nil;
+    }
     
     return cell;
 }
@@ -99,6 +109,9 @@ NSString* const kVisitCountKey = @"visitCount";
     employee.visitCount = [NSNumber numberWithInt:employee.visitCount.intValue
  + 1];
     destinationVC.employee = employee;
+    MELeftImageSubtitleListCell *cell = (MELeftImageSubtitleListCell *)[self.tableView cellForRowAtIndexPath:self.tableView.indexPathForSelectedRow];
+    destinationVC.loadedAvatar = cell.leftImage.image;
+
 }
 
 
