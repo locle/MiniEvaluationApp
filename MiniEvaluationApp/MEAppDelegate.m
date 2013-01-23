@@ -21,6 +21,9 @@
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
+//    UIImage *backButtonImage = [[UIImage imageNamed:@"icon_back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage  forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, backButtonImage.size.height * 2) forBarMetrics:UIBarMetricsDefault];
     return YES;
 }
 							

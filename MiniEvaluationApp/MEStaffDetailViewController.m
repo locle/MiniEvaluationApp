@@ -8,6 +8,7 @@
 
 #import "MEStaffDetailViewController.h"
 #import "MELeftImageRightDetailCell.h"
+#import <AddressBook/AddressBook.h>
 
 #define CELL_PADDING 32
 #define MAX_HEIGHT 1000
@@ -84,10 +85,53 @@
     
     self.cellHeightArray = [mutableHeightArray copy];
     
-    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationController.navigationItem.leftBarButtonItem = btn;
+    
+    //Set custom back bar item for UINavigation Controller
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backButtonImage = [UIImage imageNamed:@"icon_back.png"];
+    [backButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(didTapBackBarItem:) forControlEvents:UIControlEventTouchUpInside];
+    backButton.frame = CGRectMake(0.0f, 0.0f, backButtonImage.size.width, backButtonImage.size.height);
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = backButtonItem;
+    
+    //Set add contact bar item for UINavigation Controller
+    UIButton *addContactButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *addContactImage = [UIImage imageNamed:@"icon_add_contact.png"];
+    [addContactButton setBackgroundImage:addContactImage forState:UIControlStateNormal];
+    [addContactButton addTarget:self action:@selector(didTapAddContactBarItem:) forControlEvents:UIControlEventTouchUpInside];
+    addContactButton.frame = CGRectMake(0.0f, 0.0f, addContactImage.size.width, addContactImage.size.height);
+    UIBarButtonItem *addContactButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addContactButton];
+    self.navigationItem.rightBarButtonItem = addContactButtonItem;
 }
 
+- (void)didTapBackBarItem:(id)sender {
+    if(self.navigationController.viewControllers.count > 1) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void)didTapAddContactBarItem:(id)sender {
+    //Ask user for add contact into address book
+//    ABAddressBookRef iPhoneAddressBook = ABAddressBookCreate();
+//    ABRecordRef aRecord = ABPersonCreate();
+//    CFErrorRef  anError = NULL;
+//    
+//    ABRecordSetValue(aRecord, kABPersonFirstNamePhoneticProperty, CFBridgingRetain(self.employee.name), &anError);
+//    ABRecordSetValue(aRecord, kABPersonOrganizationProperty, @"2359Media", &anError);
+//    
+//    
+//    //(@"adding email");
+//    if(self.employee.userName){
+//        ABMutableMultiValueRef emails = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+//        ABMultiValueAddValueAndLabel(emails, CFBridgingRetain(self.employee.userName), kABWorkLabel, NULL);
+//        ABRecordSetValue(aRecord, kABPersonEmailProperty, emails, &anError);
+//    }
+//    
+//    //(@"adding phonee");
+//    ABMutableMultiValueRef phones = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+//    if(self.employee.contact) ABMultiValueAddValueAndLabel(phones, CFBridgingRetain(self.employee.contact), kABWorkLabel, NULL) ;
+}
 
 - (void)didReceiveMemoryWarning
 {
