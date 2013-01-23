@@ -8,6 +8,8 @@
 
 #import "MEStaffDetailViewController.h"
 #import "MELeftImageRightDetailCell.h"
+#import <QuartzCore/QuartzCore.h>
+
 #import <AddressBook/AddressBook.h>
 
 #define CELL_PADDING 32
@@ -185,17 +187,27 @@
             cell.rightDetail.text = self.employee.role;
             if (self.loadedAvatar) {
                 cell.leftImage.image = self.loadedAvatar;
+                cell.leftImage.layer.cornerRadius = cell.leftImage.frame.size.width / 2;
+                cell.leftImage.clipsToBounds = YES;
             }
             break;
         }
         case 1: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"EmailCell"];
-            cell.rightDetail.text = self.employee.userName;
+            if (self.employee.userName) {
+                cell.rightDetail.text = self.employee.userName;
+                UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDidTapEmail:)];
+                [cell.rightDetail addGestureRecognizer:tapGestureRecognizer];
+            }
             break;
         }
         case 2: {
             cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
-            cell.rightDetail.text = self.employee.contact;
+            if (self.employee.contact) {
+                cell.rightDetail.text = self.employee.contact;
+                UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDidTapContactNumber:)];
+                [cell.rightDetail addGestureRecognizer:tapGestureRecognizer];
+            }
             break;
         }
         case 3: {
@@ -214,49 +226,8 @@
     
     cell.rightDetail.numberOfLines = 0;
     [cell.rightDetail sizeToFit];
-    // Configure the cell...
-
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -271,4 +242,13 @@
      */
 }
 
+#pragma mark - Tap gesture recognizer handle
+- (void)userDidTapEmail:(id)obj {
+    UITapGestureRecognizer *recognizer = obj;
+}
+
+
+- (void)userDidTapContactNumber:(id)obj {
+    NSLog(@"Contact number");
+}
 @end

@@ -29,36 +29,19 @@
     // Drawing code
 }
 */
-- (IBAction) touchButton:(id)sender {
+- (IBAction) touchInfoButton {
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(tabWasSelected:)]) {
-        if (self.currentButton) {
-            if (self.currentButton.tag == 0) {
-                [self.currentButton setImage:[UIImage imageNamed:@"icon_contacts.png"] forState:UIControlStateNormal];
-            } else {
-                [self.currentButton setImage:[UIImage imageNamed:@"icon_info.png"] forState:UIControlStateNormal];
-            }
-        }
-        
-        self.currentButton = sender;
-        
-        if (self.currentButton.tag == 0) {
-            [self.currentButton setImage:[UIImage imageNamed:@"icon_contacts_selected.png"] forState:UIControlStateNormal];
-            [self performAnimation:self.currentButton];
-        } else {
-            [self.currentButton setImage:[UIImage imageNamed:@"icon_info_selected.png"] forState:UIControlStateNormal];
-            [self performAnimation:self.currentButton];
-        }
-        
-        [self.delegate tabWasSelected:self.currentButton.tag];
+        [self.contactButton setImage:[UIImage imageNamed:@"icon_contacts.png"] forState:UIControlStateNormal];
+        [self.infoButton setImage:[UIImage imageNamed:@"icon_info_selected.png"] forState:UIControlStateNormal];
+        [self.delegate tabWasSelected:self.infoButton.tag];
     }
 }
 
-- (void)performAnimation:(UIView *)view {
-    [UIView beginAnimations:@"View Fade In" context:nil];
-    [UIView setAnimationDuration:1.0];
-    view.alpha = 0.0;
-    view.alpha = 1.0;
-    [UIView commitAnimations];
+- (IBAction)touchContactButton {
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(tabWasSelected:)]) {
+        [self.contactButton setImage:[UIImage imageNamed:@"icon_contacts_selected.png"] forState:UIControlStateNormal];
+        [self.infoButton setImage:[UIImage imageNamed:@"icon_info.png"] forState:UIControlStateNormal];
+        [self.delegate tabWasSelected:self.contactButton.tag];
+    }
 }
-
 @end

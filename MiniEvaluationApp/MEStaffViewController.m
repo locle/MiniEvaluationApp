@@ -14,6 +14,7 @@
 #import "MELeftImageSubtitleListCell.h"
 #import "AFNetworking.h"
 #import "SVPullToRefresh.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MEStaffViewController ()
 
@@ -92,10 +93,13 @@ NSString* const kVisitCountKey = @"visitCount";
     cell.subTitle.text = employee.userName;
     if (employee.imageLink) {
         [cell.leftImage setImageWithURL:[NSURL URLWithString:employee.imageLink]];
+        cell.leftImage.layer.cornerRadius = cell.leftImage.frame.size.height / 2;
+        cell.leftImage.clipsToBounds = YES;
     }
+    
+    
     if ([employee isEqual:self.highestVisitedEmployee]) {
         cell.highestVisitedMark.image = [UIImage imageNamed:@"icon_star.png"];
-        NSLog(@"%g", employee.visitCount.doubleValue);
     } else {
         cell.highestVisitedMark.image = nil;
     }

@@ -45,7 +45,16 @@
 }
 
 - (void)tabWasSelected:(NSInteger)index {
+    UIViewController *selectedVC = [self.viewControllers objectAtIndex:index];
+    selectedVC.view.alpha = 0.0;
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         selectedVC.view.alpha = 1.0;
+                     }
+                     completion:^(BOOL finished){
+                     }];
     self.selectedIndex = index;
-    [self.delegate tabBarController:self didSelectViewController:[self.viewControllers objectAtIndex:index]];
 }
 @end

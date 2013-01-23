@@ -16,31 +16,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="a5M-fv-dMT" kind="relationship" relationship="viewControllers" id="CWJ-14-hwn"/>
-                        <segue destination="flQ-E1-trW" kind="relationship" relationship="viewControllers" id="kKM-ZK-09B"/>
+                        <segue destination="4VH-rR-VZd" kind="relationship" relationship="viewControllers" id="e1b-UG-cgb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="oCG-rq-6dV">
-            <objects>
-                <navigationController id="flQ-E1-trW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icon_info.png" id="7"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xIc-Y0-x6H">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8XM-9S-lqY" kind="relationship" relationship="rootViewController" id="SA2-XS-1Yx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oQx-yU-Evw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="653" y="-138"/>
         </scene>
         <!--Company View Controller - 2359 Media-->
         <scene sceneID="WXe-64-EGh">
@@ -64,41 +45,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8W-BR-D6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1197" y="-151"/>
+            <point key="canvasLocation" x="1256" y="-17"/>
         </scene>
         <!--Staff View Controller - 2359 Media-->
         <scene sceneID="oos-Xu-I5V">
             <objects>
                 <tableViewController id="Qns-Ju-tSK" customClass="MEStaffViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" id="s64-Jr-DhJ">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="s64-Jr-DhJ">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MELeftImageSubtitleListCell" rowHeight="64" id="bms-Kj-Zmx" customClass="MELeftImageSubtitleListCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="64"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MELeftImageSubtitleListCell" rowHeight="76" id="bms-Kj-Zmx" customClass="MELeftImageSubtitleListCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_profile.png" id="S46-4a-e3u">
-                                            <rect key="frame" x="2" y="1" width="60" height="60"/>
+                                            <rect key="frame" x="5" y="10" width="56" height="56"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L9h-pQ-qr9">
-                                            <rect key="frame" x="69" y="11" width="195" height="21"/>
+                                            <rect key="frame" x="69" y="19" width="195" height="21"/>
                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                             <color key="textColor" red="1" green="0.65098039220000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9QY-3b-ZDt">
-                                            <rect key="frame" x="69" y="25" width="195" height="21"/>
+                                            <rect key="frame" x="69" y="31" width="195" height="21"/>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="hbx-rQ-de0">
-                                            <rect key="frame" x="270" y="18" width="25" height="25"/>
+                                            <rect key="frame" x="272" y="25" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -128,7 +109,7 @@
         <scene sceneID="d24-6E-9Li">
             <objects>
                 <tableViewController id="b6n-zS-70a" customClass="MEStaffDetailViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Skb-y7-ALd">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Skb-y7-ALd">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -166,7 +147,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="4Fs-7e-18T">
+                                        <label opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="4Fs-7e-18T">
                                             <rect key="frame" x="78" y="11" width="232" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
@@ -191,7 +172,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Tl-Mc-A4z">
+                                        <label opaque="NO" clipsSubviews="YES" contentMode="center" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Tl-Mc-A4z">
                                             <rect key="frame" x="78" y="11" width="232" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
@@ -290,12 +271,30 @@
             </objects>
             <point key="canvasLocation" x="653" y="562"/>
         </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="QLy-A5-J5g">
+            <objects>
+                <navigationController id="4VH-rR-VZd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="yfi-sL-cFG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tXu-WZ-5Bp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8XM-9S-lqY" kind="relationship" relationship="rootViewController" id="0m5-ZJ-RIk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mea-MC-Pab" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730" y="-17"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon_contacts.png" width="49" height="49"/>
         <image name="icon_dislike.png" width="22" height="24"/>
         <image name="icon_email.png" width="22" height="22"/>
-        <image name="icon_info.png" width="49" height="49"/>
         <image name="icon_like.png" width="22" height="24"/>
         <image name="icon_profile.png" width="60" height="60"/>
         <image name="icon_sms.png" width="22" height="22"/>
