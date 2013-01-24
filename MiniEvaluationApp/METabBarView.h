@@ -21,8 +21,11 @@
 @interface METabBarView : UIView
 
 @property (nonatomic, assign) NSObject<METabBarDelegate> *delegate;
-@property (nonatomic, assign) UIButton *currentButton;
 
-- (IBAction)touchButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *infoButton;
+@property (strong, nonatomic) IBOutlet UIButton *contactButton;
+
+- (IBAction)touchInfoButton;
+- (IBAction)touchContactButton;
 
 @end

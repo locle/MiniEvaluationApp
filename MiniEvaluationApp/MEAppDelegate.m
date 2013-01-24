@@ -13,9 +13,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.tabBarController = (UITabBarController *)self.window.rootViewController;
-    self.tabBarController.delegate = self;
-
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:235.0/255.0 green:119.0/255.0 blue:63.0/255.0 alpha:1.0]];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,[UIFont fontWithName:@"Helvetica Neue Bold" size:20.0], UITextAttributeFont, nil]];
     
@@ -52,36 +49,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-#pragma mark - TabBar delegate - customize tab view transition
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-    [UIView beginAnimations:@"View Fade In" context:nil];
-    [UIView setAnimationDuration:1.0];
-    
-    //    [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown
-    //                           forView:self.tabBarController.view cache:YES];
-    //    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    self.tabBarController.selectedViewController.view.alpha = 0.0;
-    self.tabBarController.selectedViewController.view.alpha = 1.0;
-    [UIView commitAnimations];
-    
-//    [UIView animateWithDuration:1.0
-//                          delay:0
-//                        options:UIViewAnimationOptionBeginFromCurrentState
-//                     animations:^{
-//                         [token setFrame:CGRectMake(xx, 0, 64, 64)];
-//                         //here you may add any othe actions, but notice, that ALL of them will do in SINGLE step. so, we setting ONLY xx coordinate to move it horizantly first.
-//                     }
-//                     completion:^(BOOL finished){
-//                         
-//                         //here any actions, thet must be done AFTER 1st animation is finished. If you whant to loop animations, call your function here.
-//                         [UIView animateWithDuration:0.5
-//                                               delay:0
-//                                             options:UIViewAnimationOptionBeginFromCurrentState
-//                                          animations:^{[token setFrame:CGRectMake(xx, yy, 64, 64)];} // adding yy coordinate to move it verticaly}
-//                                          completion:nil];
-//                     }];
 }
 
 @end
