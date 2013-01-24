@@ -32,7 +32,7 @@ NSString* const kASCVisitCount = @"visitCount";
     for (id object in employeeList) {
         if ([object isKindOfClass:[MEEmployee class]]) {
             MEEmployee *employee = object;
-            if (employee.visitCount > highestVisittedEmployee.visitCount) {
+            if ([employee.visitCount compare:highestVisittedEmployee.visitCount] == NSOrderedDescending) {
                 highestVisittedEmployee = employee;
             }
         }

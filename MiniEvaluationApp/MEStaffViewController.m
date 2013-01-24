@@ -126,10 +126,11 @@ NSString* const kVisitCountKey = @"visitCount";
     MEEmployee *employee = [self.employeeDictionary.allValues objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     employee.visitCount = [NSNumber numberWithInt:employee.visitCount.intValue
  + 1];
-    if (employee.visitCount > self.highestVisitedEmployee.visitCount) {
+    if (employee.visitCount.intValue > self.highestVisitedEmployee.visitCount.intValue) {
         self.highestVisitedEmployee = employee;
         [self.tableView reloadData];
     }
+    DLog(@"%@: %g", self.highestVisitedEmployee.name, self.highestVisitedEmployee.visitCount.doubleValue);
     destinationVC.employee = employee;
     MELeftImageSubtitleListCell *cell = (MELeftImageSubtitleListCell *)[self.tableView cellForRowAtIndexPath:self.tableView.indexPathForSelectedRow];
     destinationVC.loadedAvatar = cell.leftImage.image;
