@@ -2,19 +2,4 @@
 <Bucket
    type = "1"
    version = "1.0">
-   <FileBreakpoints>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "MiniEvaluationApp/MEEmployee.m"
-         timestampString = "380456253.150721"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
-         landmarkName = "-encodeWithCoder:"
-         landmarkType = "5">
-      </FileBreakpoint>
-   </FileBreakpoints>
 </Bucket>
