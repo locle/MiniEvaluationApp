@@ -90,6 +90,10 @@ NSString* const kVisitCountKey = @"visitCount";
     // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
     MEEmployee *employee = [self.employeeDictionary.allValues objectAtIndex:indexPath.row];
     cell.title.text = employee.name;
+    if ([employee.gender isEqualToString:@"female"]) {
+        cell.title.textColor = [UIColor colorWithRed:40.0/255.0 green:160.0/255.0 blue:180.0/255.0 alpha:1.0];
+    }
+    
     cell.subTitle.text = employee.userName;
     if (employee.imageLink) {
         [cell.leftImage setImageWithURL:[NSURL URLWithString:employee.imageLink]];
