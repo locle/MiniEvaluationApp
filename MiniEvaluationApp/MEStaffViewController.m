@@ -48,8 +48,8 @@ NSString* const kVisitCountKey = @"visitCount";
     self.storedVisitCount = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:kVisitCountKey]];
     
     __weak MEStaffViewController *weakSelf = self;
-    [self.tableView addPullToRefreshWithActionHandler:^{
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
+    void (^loadBlock)(void) = ^(void) {
+        
             [[MEStaffAPIClient sharedInstance] loadEmployeeListWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
                 id obj = [response objectFromJSONData];
                 weakSelf.employeeDictionary = [MEEmployee employeeListFromDataArray:obj];
@@ -59,7 +59,12 @@ NSString* const kVisitCountKey = @"visitCount";
                                                                    failure:^(AFHTTPRequestOperation  *operation, NSError *error) {
                                                                        DLog(@"%@",error.description);
                                                                    }];
-            });
+    };
+    
+    loadBlock();
+    
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        dispatch_async(dispatch_get_main_queue(), loadBlock);
     }];
 }
 
