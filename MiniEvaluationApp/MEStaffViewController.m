@@ -51,7 +51,7 @@ NSString* const kVisitCountKey = @"visitCount";
                 [weakSelf.tableView reloadData];
             }
                                                                    failure:^(AFHTTPRequestOperation  *operation, NSError *error) {
-                                                                       NSLog(@"%@",error.description);
+                                                                       DLog(@"%@",error.description);
                                                                    }];
             });
     }];
@@ -92,14 +92,14 @@ NSString* const kVisitCountKey = @"visitCount";
     cell.title.text = employee.name;
     if ([employee.gender isEqualToString:@"female"]) {
         cell.title.textColor = [UIColor colorWithRed:40.0/255.0 green:160.0/255.0 blue:180.0/255.0 alpha:1.0];
+    } else {
+        cell.title.textColor = [UIColor colorWithRed:255.0/255.0 green:166.0/255.0 blue:0.0/255.0 alpha:1.0];
     }
     
     cell.subTitle.text = employee.userName;
-    if (employee.imageLink) {
-        [cell.leftImage setImageWithURL:[NSURL URLWithString:employee.imageLink]];
-        cell.leftImage.layer.cornerRadius = cell.leftImage.frame.size.height / 2;
-        cell.leftImage.clipsToBounds = YES;
-    }
+    [cell.leftImage setImageWithURL:[NSURL URLWithString:employee.imageLink] placeholderImage:[UIImage imageNamed:@"icon_profile.png"]];
+    cell.leftImage.layer.cornerRadius = cell.leftImage.frame.size.height / 2;
+    cell.leftImage.clipsToBounds = YES;
     
     
     if ([employee isEqual:self.highestVisitedEmployee]) {
@@ -109,6 +109,10 @@ NSString* const kVisitCountKey = @"visitCount";
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.backgroundColor = (indexPath.row % 2) ? [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:1.0] : [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

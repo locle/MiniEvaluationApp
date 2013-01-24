@@ -13,3 +13,19 @@
     #import <Foundation/Foundation.h>
     #import "MEConstants.h"
 #endif
+
+//#ifdef ENABLE_DEBUG
+//    #define DLog(format, args...) \
+//        NSLog(@"%s, line %d: " format "\n", \
+//        __func__, __LINE__, ## args);
+//#else
+//    #define DLog(format, args...) do {} while(0)
+//#endif
+
+#ifdef DEBUG
+    #define DLog(format, ...) \
+        NSLog(@"Func: %s, line: %d, " format "\n", \
+        __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+    #define DLog(...)
+#endif

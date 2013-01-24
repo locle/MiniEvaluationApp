@@ -8,9 +8,10 @@
 
 #import "MEStaffDetailViewController.h"
 #import "MELeftImageRightDetailCell.h"
-#import <QuartzCore/QuartzCore.h>
 
+#import <QuartzCore/QuartzCore.h>
 #import <AddressBook/AddressBook.h>
+
 
 #define CELL_PADDING 32
 #define MAX_HEIGHT 1000
@@ -113,26 +114,55 @@
     }
 }
 
-- (void)didTapAddContactBarItem:(id)sender {
-    //Ask user for add contact into address book
-//    ABAddressBookRef iPhoneAddressBook = ABAddressBookCreate();
-//    ABRecordRef aRecord = ABPersonCreate();
-//    CFErrorRef  anError = NULL;
-//    
-//    ABRecordSetValue(aRecord, kABPersonFirstNamePhoneticProperty, CFBridgingRetain(self.employee.name), &anError);
-//    ABRecordSetValue(aRecord, kABPersonOrganizationProperty, @"2359Media", &anError);
-//    
-//    
-//    //(@"adding email");
-//    if(self.employee.userName){
-//        ABMutableMultiValueRef emails = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-//        ABMultiValueAddValueAndLabel(emails, CFBridgingRetain(self.employee.userName), kABWorkLabel, NULL);
-//        ABRecordSetValue(aRecord, kABPersonEmailProperty, emails, &anError);
-//    }
-//    
-//    //(@"adding phonee");
-//    ABMutableMultiValueRef phones = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-//    if(self.employee.contact) ABMultiValueAddValueAndLabel(phones, CFBridgingRetain(self.employee.contact), kABWorkLabel, NULL) ;
+- (void)didTapAddContactBarItem:(id)sender {   
+    NSString *message = [NSString stringWithFormat:@"Do you want to add %@ to your Address Book?", self.employee.name];
+    UIAlertView *addContactAlert = [[UIAlertView alloc] initWithTitle:message
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Ok", nil];
+    [addContactAlert setAlertViewStyle:UIAlertViewStyleDefault];
+    [addContactAlert show];
+    DLog(@"test");
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        CFErrorRef  anError = NULL;
+        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, &anError);
+        ABRecordRef newContact = ABPersonCreate();
+
+        //Contact properties which are only constant strings
+        ABRecordSetValue(newContact, kABPersonFirstNameProperty, CFBridgingRetain(self.employee.name), &anError);
+        ABRecordSetValue(newContact, kABPersonOrganizationProperty, @"2359Media", &anError);
+        ABRecordSetValue(newContact, kABPersonNoteProperty, CFBridgingRetain(self.employee.role), &anError);
+        //Contact properties which are ABMutableMultiValueRef
+        //Phone
+        if(self.employee.contact) {
+            ABMutableMultiValueRef phones = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+            ABMultiValueAddValueAndLabel(phones, CFBridgingRetain(self.employee.contact), kABWorkLabel, NULL) ;
+            ABRecordSetValue(newContact, kABPersonPhoneProperty, phones, &anError);
+        }
+        //Email
+        if(self.employee.userName){
+            ABMutableMultiValueRef emails = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+            ABMultiValueAddValueAndLabel(emails, CFBridgingRetain(self.employee.userName), kABWorkLabel, NULL);
+            ABRecordSetValue(newContact, kABPersonEmailProperty, emails, &anError);
+        }
+
+        ABAddressBookAddRecord(addressBook, newContact, &anError);
+        ABAddressBookSave(addressBook, &anError);
+        if (anError != NULL)
+        {
+            UIAlertView *addContactAlert = [[UIAlertView alloc] initWithTitle:@"Contact has not been added into Address Book!"
+                                                                      message:nil
+                                                                     delegate:self
+                                                            cancelButtonTitle:@"OK"
+                                                            otherButtonTitles:nil];
+            [addContactAlert setAlertViewStyle:UIAlertViewStyleDefault];
+            [addContactAlert show];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -196,7 +226,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"EmailCell"];
             if (self.employee.userName) {
                 cell.rightDetail.text = self.employee.userName;
-                UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDidTapEmail:)];
+                UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDidTapEmail)];
                 [cell.rightDetail addGestureRecognizer:tapGestureRecognizer];
             }
             break;
@@ -205,7 +235,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
             if (self.employee.contact) {
                 cell.rightDetail.text = self.employee.contact;
-                UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDidTapContactNumber:)];
+                UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDidTapContactNumber)];
                 [cell.rightDetail addGestureRecognizer:tapGestureRecognizer];
             }
             break;
@@ -243,12 +273,31 @@
 }
 
 #pragma mark - Tap gesture recognizer handle
-- (void)userDidTapEmail:(id)obj {
-    UITapGestureRecognizer *recognizer = obj;
+- (void)userDidTapEmail {
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
+        if (mailVC) {
+            mailVC.mailComposeDelegate = self;
+            [mailVC setToRecipients:[NSArray arrayWithObject:self.employee.userName]];
+            [self presentViewController:mailVC animated:YES completion:nil];
+        }
+    }
 }
 
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
-- (void)userDidTapContactNumber:(id)obj {
-    NSLog(@"Contact number");
+- (void)userDidTapContactNumber {
+    MFMessageComposeViewController *messageVC = [[MFMessageComposeViewController alloc] init];
+    if (messageVC) {
+        messageVC.messageComposeDelegate = self;
+        [messageVC setRecipients:[NSArray arrayWithObject:self.employee.contact]];
+        [self presentViewController:messageVC animated:YES completion:nil];
+    }
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

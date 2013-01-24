@@ -299,48 +299,6 @@
         <image name="icon_profile.png" width="60" height="60"/>
         <image name="icon_sms.png" width="22" height="22"/>
     </resources>
-    <classes>
-        <class className="MECompanyViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MECompanyViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MELeftImageRightDetailCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MELeftImageRightDetailCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="leftImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="rightDetail" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MELeftImageSubtitleListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MELeftImageSubtitleListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="highestVisitedMark" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="leftImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="subTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MEStaffDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MEStaffDetailViewController.h"/>
-        </class>
-        <class className="MEStaffViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MEStaffViewController.h"/>
-        </class>
-        <class className="METabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/METabBarController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="customTabBarView" candidateClass="METabBarView"/>
-            </relationships>
-        </class>
-        <class className="METabBarView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/METabBarView.h"/>
-            <relationships>
-                <relationship kind="action" name="touchButton:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

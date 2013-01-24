@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import <MessageUI/MFMessageComposeViewController.h>
+
 #import "MEEmployee.h"
 
-@interface MEStaffDetailViewController : UITableViewController <UINavigationControllerDelegate>
+@interface MEStaffDetailViewController : UITableViewController <UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) MEEmployee *employee;
 @property (nonatomic, strong) UIImage *loadedAvatar;
-
 
 @end
