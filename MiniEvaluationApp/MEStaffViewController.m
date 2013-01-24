@@ -19,17 +19,33 @@
 @interface MEStaffViewController ()
 
 @property (nonatomic, strong) NSDictionary *employeeDictionary;
+@property (nonatomic, strong) NSDictionary *storedVisitCount;
 @property (nonatomic, strong) MEEmployee *highestVisitedEmployee;
+
 @end
 
 NSString* const kVisitCountKey = @"visitCount";
 
 @implementation MEStaffViewController
 
+- (void)setEmployeeDictionary:(NSDictionary *)employeeDictionary {
+    _employeeDictionary = employeeDictionary;
+
+    for (MEEmployee *storedEmployee in self.storedVisitCount.allValues) {
+        MEEmployee *loaddedEmployee = [self.employeeDictionary objectForKey:storedEmployee.userName];
+        if (loaddedEmployee) {
+            loaddedEmployee.visitCount = storedEmployee.visitCount;
+        }
+    }
+    
+    self.highestVisitedEmployee = [MEEmployee highestVisitedEmployeeFromDataArray:self.employeeDictionary.allValues];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.storedVisitCount = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:kVisitCountKey]];
     
     __weak MEStaffViewController *weakSelf = self;
     [self.tableView addPullToRefreshWithActionHandler:^{
@@ -37,17 +53,7 @@ NSString* const kVisitCountKey = @"visitCount";
             [[MEStaffAPIClient sharedInstance] loadEmployeeListWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
                 id obj = [response objectFromJSONData];
                 weakSelf.employeeDictionary = [MEEmployee employeeListFromDataArray:obj];
-                
-                NSDictionary *storedCountCount = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:kVisitCountKey]];
-                for (MEEmployee *storedEmployee in storedCountCount.allValues) {
-                    MEEmployee *loaddedEmployee = [weakSelf.employeeDictionary objectForKey:storedEmployee.userName];
-                    if (loaddedEmployee) {
-                        loaddedEmployee.visitCount = storedEmployee.visitCount;
-                    }
-                }
                 [weakSelf.tableView.pullToRefreshView stopAnimating];
-                
-                self.highestVisitedEmployee = [MEEmployee highestVisitedEmployeeFromDataArray:self.employeeDictionary.allValues];
                 [weakSelf.tableView reloadData];
             }
                                                                    failure:^(AFHTTPRequestOperation  *operation, NSError *error) {
@@ -120,6 +126,10 @@ NSString* const kVisitCountKey = @"visitCount";
     MEEmployee *employee = [self.employeeDictionary.allValues objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     employee.visitCount = [NSNumber numberWithInt:employee.visitCount.intValue
  + 1];
+    if (employee.visitCount > self.highestVisitedEmployee.visitCount) {
+        self.highestVisitedEmployee = employee;
+        [self.tableView reloadData];
+    }
     destinationVC.employee = employee;
     MELeftImageSubtitleListCell *cell = (MELeftImageSubtitleListCell *)[self.tableView cellForRowAtIndexPath:self.tableView.indexPathForSelectedRow];
     destinationVC.loadedAvatar = cell.leftImage.image;
