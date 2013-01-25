@@ -28,7 +28,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:kCompanyURL]]];
+    
+    DLog(@"%@", self.webView);
+    self.webView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    DLog(@"%@", self.webView);
 }
+
 
 - (void)didReceiveMemoryWarning
 {

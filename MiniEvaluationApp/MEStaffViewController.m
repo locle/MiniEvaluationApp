@@ -107,7 +107,10 @@ NSString* const kVisitCountKey = @"visitCount";
         cell.title.textColor = [UIColor colorWithRed:255.0/255.0 green:166.0/255.0 blue:0.0/255.0 alpha:1.0];
     }
     
-    cell.subTitle.text = employee.userName;
+//    for ( NSString *familyName in [UIFont familyNames] ) { NSLog(@"Family %@", familyName); NSLog(@"Names = %@", [UIFont fontNamesForFamilyName:familyName]); } 
+    cell.subTitle.font = [UIFont fontWithName:@"MyriadPro-Regular" size:10.0];
+    cell.subTitle.textColor = [UIColor colorWithRed:171/255.0 green:171/255.0 blue:171.0/255.0 alpha:1.0];
+    cell.subTitle.text = employee.role;
     [cell.leftImage setImageWithURL:[NSURL URLWithString:employee.imageLink] placeholderImage:[UIImage imageNamed:@"icon_profile.png"]];
     cell.leftImage.layer.cornerRadius = cell.leftImage.frame.size.height / 2;
     cell.leftImage.clipsToBounds = YES;
