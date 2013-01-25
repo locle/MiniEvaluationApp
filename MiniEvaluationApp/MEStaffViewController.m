@@ -16,6 +16,7 @@
 #import "SVPullToRefresh.h"
 #import <QuartzCore/QuartzCore.h>
 
+
 @interface MEStaffViewController ()
 
 @property (nonatomic, strong) NSDictionary *employeeDictionary;
@@ -47,25 +48,44 @@ NSString* const kVisitCountKey = @"visitCount";
 	// Do any additional setup after loading the view, typically from a nib.
     self.storedVisitCount = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:kVisitCountKey]];
     
+//    __weak MEStaffViewController *weakSelf = self;
+//    void (^loadBlock)(void) = ^(void) {
+//        
+//            [[MEStaffAPIClient sharedInstance] loadEmployeeListWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
+//                id obj = [response objectFromJSONData];
+//                weakSelf.employeeDictionary = [MEEmployee employeeListFromDataArray:obj];
+//                [weakSelf.tableView.pullToRefreshView stopAnimating];
+//                [weakSelf.tableView reloadData];
+//            }
+//                                                                   failure:^(AFHTTPRequestOperation  *operation, NSError *error) {
+//                                                                       DLog(@"%@",error.description);
+//                                                                   }];
+//    };
+//    
+//    loadBlock();
+//    
+//    [self.tableView addPullToRefreshWithActionHandler:^{
+//        dispatch_async(dispatch_get_main_queue(), loadBlock);
+//    }];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh)
+             forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+}
+
+-(void)refresh {
     __weak MEStaffViewController *weakSelf = self;
-    void (^loadBlock)(void) = ^(void) {
-        
-            [[MEStaffAPIClient sharedInstance] loadEmployeeListWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
-                id obj = [response objectFromJSONData];
-                weakSelf.employeeDictionary = [MEEmployee employeeListFromDataArray:obj];
-                [weakSelf.tableView.pullToRefreshView stopAnimating];
-                [weakSelf.tableView reloadData];
-            }
-                                                                   failure:^(AFHTTPRequestOperation  *operation, NSError *error) {
-                                                                       DLog(@"%@",error.description);
-                                                                   }];
-    };
-    
-    loadBlock();
-    
-    [self.tableView addPullToRefreshWithActionHandler:^{
-        dispatch_async(dispatch_get_main_queue(), loadBlock);
-    }];
+    [[MEStaffAPIClient sharedInstance] loadEmployeeListWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
+        id obj = [response objectFromJSONData];
+        weakSelf.employeeDictionary = [MEEmployee employeeListFromDataArray:obj];
+        [weakSelf.tableView.pullToRefreshView stopAnimating];
+        [weakSelf.tableView reloadData];
+        [weakSelf.refreshControl endRefreshing];
+    }
+                                                           failure:^(AFHTTPRequestOperation  *operation, NSError *error) {
+                                                               DLog(@"%@",error.description);
+                                                           }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
