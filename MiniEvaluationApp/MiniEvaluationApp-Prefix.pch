@@ -12,6 +12,12 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "MEConstants.h"
+
+
+//Categories/extensions
+    #import "UIFont+MEAdditions.h"
+    #import "UIColor+MEAdditions.h"
+    #import "UIViewController+MEAdditions.h"
 #endif
 
 //#ifdef ENABLE_DEBUG

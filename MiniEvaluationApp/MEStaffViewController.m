@@ -122,14 +122,14 @@ NSString* const kVisitCountKey = @"visitCount";
     MEEmployee *employee = [self.employeeDictionary.allValues objectAtIndex:indexPath.row];
     cell.title.text = employee.name;
     if ([employee.gender isEqualToString:@"female"]) {
-        cell.title.textColor = [UIColor colorWithRed:40.0/255.0 green:160.0/255.0 blue:180.0/255.0 alpha:1.0];
+        cell.title.textColor = [UIColor orange1];
     } else {
-        cell.title.textColor = [UIColor colorWithRed:255.0/255.0 green:166.0/255.0 blue:0.0/255.0 alpha:1.0];
+        cell.title.textColor = [UIColor blue1];
     }
     
 //    for ( NSString *familyName in [UIFont familyNames] ) { NSLog(@"Family %@", familyName); NSLog(@"Names = %@", [UIFont fontNamesForFamilyName:familyName]); } 
-    cell.subTitle.font = [UIFont fontWithName:@"MyriadPro-Regular" size:10.0];
-    cell.subTitle.textColor = [UIColor colorWithRed:171/255.0 green:171/255.0 blue:171.0/255.0 alpha:1.0];
+    cell.subTitle.font = [UIFont meFontOfSize:10];
+    cell.subTitle.textColor = [UIColor gray1];
     cell.subTitle.text = employee.role;
     [cell.leftImage setImageWithURL:[NSURL URLWithString:employee.imageLink] placeholderImage:[UIImage imageNamed:@"icon_profile.png"]];
     cell.leftImage.layer.cornerRadius = cell.leftImage.frame.size.height / 2;
@@ -146,7 +146,7 @@ NSString* const kVisitCountKey = @"visitCount";
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.backgroundColor = (indexPath.row % 2) ? [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:1.0] : [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
+    cell.backgroundColor = (indexPath.row % 2) ? [UIColor gray2] : [UIColor gray3];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

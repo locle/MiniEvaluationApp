@@ -9,9 +9,9 @@
 #import "MEStaffDetailViewController.h"
 #import "MELeftImageRightDetailCell.h"
 
-#import <QuartzCore/QuartzCore.h>
-#import <AddressBook/AddressBook.h>
 
+#import <AddressBook/AddressBook.h>
+#import <QuartzCore/QuartzCore.h>
 
 #define CELL_PADDING 32
 #define MAX_HEIGHT 1000
@@ -279,17 +279,8 @@
         if (mailVC) {
             mailVC.mailComposeDelegate = self;
             [mailVC setToRecipients:[NSArray arrayWithObject:self.employee.userName]];
-            [self presentViewController:mailVC animated:NO completion:^{
-                mailVC.view.alpha = 0.0;
-                mailVC.view.layer.transform = CATransform3DMakeRotation(M_PI_2, 0.0, 1.0, 0);
-                [UIView animateWithDuration:1.0f
-                                 animations:^{
-                                     mailVC.view.alpha = 1.0;
-                                     mailVC.view.layer.transform = CATransform3DMakeRotation(0, 0.0, 1.0, 0);
-                                 }
-                                 completion:^(BOOL finished) {
-                                 }];
-            }];
+            
+            [self presentWithMEAnimationViewController:mailVC];
         }
     }
 }

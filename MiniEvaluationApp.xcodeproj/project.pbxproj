@@ -73,6 +73,9 @@
 		8D9473FD16AE39600005F25D /* middle_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D9473FB16AE39600005F25D /* middle_button@2x.png */; };
 		8D94740016AE3BAA0005F25D /* METabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9473FF16AE3BAA0005F25D /* METabBarController.m */; };
 		8D95036D16B2420B00C27293 /* MyriadPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D95036B16B239F600C27293 /* MyriadPro-Regular.ttf */; };
+		C295E6E816B592280049CBCF /* UIColor+MEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C295E6E516B592280049CBCF /* UIColor+MEAdditions.m */; };
+		C295E6E916B592280049CBCF /* UIFont+MEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C295E6E716B592280049CBCF /* UIFont+MEAdditions.m */; };
+		C295E6EC16B597820049CBCF /* UIViewController+MEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C295E6EB16B597820049CBCF /* UIViewController+MEAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +174,12 @@
 		8D9473FE16AE3BAA0005F25D /* METabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METabBarController.h; sourceTree = "<group>"; };
 		8D9473FF16AE3BAA0005F25D /* METabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METabBarController.m; sourceTree = "<group>"; };
 		8D95036B16B239F600C27293 /* MyriadPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.ttf"; sourceTree = "<group>"; };
+		C295E6E416B592280049CBCF /* UIColor+MEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MEAdditions.h"; sourceTree = "<group>"; };
+		C295E6E516B592280049CBCF /* UIColor+MEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MEAdditions.m"; sourceTree = "<group>"; };
+		C295E6E616B592280049CBCF /* UIFont+MEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+MEAdditions.h"; sourceTree = "<group>"; };
+		C295E6E716B592280049CBCF /* UIFont+MEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+MEAdditions.m"; sourceTree = "<group>"; };
+		C295E6EB16B597820049CBCF /* UIViewController+MEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MEAdditions.m"; sourceTree = "<group>"; };
+		C295E79816B598990049CBCF /* UIViewController+MEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MEAdditions.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +246,7 @@
 		8D94736916ACE0B40005F25D /* MiniEvaluationApp */ = {
 			isa = PBXGroup;
 			children = (
+				C295E6E216B592160049CBCF /* Categories */,
 				8D94739716ACE0DC0005F25D /* Controller */,
 				8D94739616ACE0D30005F25D /* Vendor */,
 				8D94739516ACE0CC0005F25D /* View */,
@@ -388,6 +398,19 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
+		C295E6E216B592160049CBCF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C295E6E416B592280049CBCF /* UIColor+MEAdditions.h */,
+				C295E6E516B592280049CBCF /* UIColor+MEAdditions.m */,
+				C295E6E616B592280049CBCF /* UIFont+MEAdditions.h */,
+				C295E6E716B592280049CBCF /* UIFont+MEAdditions.m */,
+				C295E79816B598990049CBCF /* UIViewController+MEAdditions.h */,
+				C295E6EB16B597820049CBCF /* UIViewController+MEAdditions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -509,6 +532,9 @@
 				8D4015C316AE823800C4F95D /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				8D4015C416AE823800C4F95D /* UIScrollView+SVPullToRefresh.m in Sources */,
 				8D4015E916AF9A8000C4F95D /* MELeftImageRightDetailCell.m in Sources */,
+				C295E6E816B592280049CBCF /* UIColor+MEAdditions.m in Sources */,
+				C295E6E916B592280049CBCF /* UIFont+MEAdditions.m in Sources */,
+				C295E6EC16B597820049CBCF /* UIViewController+MEAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
