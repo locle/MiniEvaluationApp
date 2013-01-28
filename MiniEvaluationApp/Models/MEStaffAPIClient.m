@@ -15,7 +15,7 @@
     static MEStaffAPIClient *__sharedInstance;
     static dispatch_once_t once_token;
     dispatch_once(&once_token, ^{
-        __sharedInstance = [[MEStaffAPIClient alloc] initWithBaseURL:[NSURL URLWithString:kStaffAPIBaseURL]];
+        __sharedInstance = [[MEStaffAPIClient alloc] initWithBaseURL:[NSURL URLWithString:MEAPP_API_HOST]];
     }   );
     return __sharedInstance;
 }
@@ -30,7 +30,7 @@
 
 - (void)loadEmployeeListWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    [self getPath:kStaffAPILoadEmployeeList
+    [self getPath:@"/u/11295402/MiniEval/data.json"
        parameters:nil
           success:success
           failure:failure];

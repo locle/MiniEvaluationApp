@@ -8,17 +8,28 @@
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
 
+#define MEAPP_API_HOST      @"https://dl.dropbox.com/"
+#define COMPANY_HOST        @"http://2359media.com"
+
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import "MEConstants.h"
+#endif
 
 
 //Categories/extensions
-    #import "UIFont+MEAdditions.h"
-    #import "UIColor+MEAdditions.h"
-    #import "UIViewController+MEAdditions.h"
-#endif
+#import "UIFont+MEAdditions.h"
+#import "UIColor+MEAdditions.h"
+#import "UIViewController+MEAdditions.h"
+
+//Models
+#import "MEEmployee.h"
+
+
+//Vendors
+#import "AFNetworking.h"
+#import "JSONKit.h"
+#import "SVPullToRefresh.h"
 
 //#ifdef ENABLE_DEBUG
 //    #define DLog(format, args...) \

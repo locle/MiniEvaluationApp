@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MELeftImageSubtitleListCell : UITableViewCell
+@interface MEEmployeeTableCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *leftImage;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *subTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *highestVisitedMark;
+
+- (void)setUpWithEmployee:(MEEmployee *)employee isHighestVisitedEmployee:(BOOL)isHighestVisitedEmployee andTarget:(id)target;
+
 
 @end

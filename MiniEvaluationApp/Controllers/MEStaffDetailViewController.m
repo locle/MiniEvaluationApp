@@ -7,7 +7,7 @@
 //
 
 #import "MEStaffDetailViewController.h"
-#import "MELeftImageRightDetailCell.h"
+#import "MEEmployeeDetailCell.h"
 
 
 #import <AddressBook/AddressBook.h>
@@ -25,9 +25,9 @@
 
 @implementation MEStaffDetailViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -51,8 +51,8 @@
     self.numOfRows = 0;
     
     
-    MELeftImageRightDetailCell *avatarAndRoleCell = [self.tableView dequeueReusableCellWithIdentifier:@"AvatarAndRoleCell"];
-    MELeftImageRightDetailCell *emailCell = [self.tableView dequeueReusableCellWithIdentifier:@"EmailCell"];
+    MEEmployeeDetailCell *avatarAndRoleCell = [self.detailTableView dequeueReusableCellWithIdentifier:@"AvatarAndRoleCell"];
+    MEEmployeeDetailCell *emailCell = [self.detailTableView dequeueReusableCellWithIdentifier:@"EmailCell"];
     NSMutableArray *mutableHeightArray = [NSMutableArray arrayWithCapacity:5];
     
     UIFont *font = avatarAndRoleCell.rightDetail.font;
@@ -174,17 +174,17 @@
 #pragma mark - UINavigationController delegate
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if ([viewController isMemberOfClass:[MEStaffDetailViewController class]]) {
-        [self.tableView beginUpdates];
+        [self.detailTableView beginUpdates];
         NSArray *indexPathArray = [NSArray arrayWithObjects:
                                    [NSIndexPath indexPathForRow:0 inSection:0],
                                    [NSIndexPath indexPathForRow:1 inSection:0],
                                    [NSIndexPath indexPathForRow:2 inSection:0],
                                    [NSIndexPath indexPathForRow:3 inSection:0],
                                    [NSIndexPath indexPathForRow:4 inSection:0], nil];
-        [self.tableView insertRowsAtIndexPaths:indexPathArray
+        [self.detailTableView insertRowsAtIndexPaths:indexPathArray
                               withRowAnimation:UITableViewRowAnimationLeft];
         self.numOfRows = indexPathArray.count;
-        [self.tableView endUpdates];
+        [self.detailTableView endUpdates];
 
     }
 }
@@ -210,53 +210,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MELeftImageRightDetailCell *cell;
-    switch (indexPath.row) {
-        case 0: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"AvatarAndRoleCell"];
-            cell.rightDetail.text = self.employee.role;
-            if (self.loadedAvatar) {
-                cell.leftImage.image = self.loadedAvatar;
-                cell.leftImage.layer.cornerRadius = cell.leftImage.frame.size.width / 2;
-                cell.leftImage.clipsToBounds = YES;
-            }
-            break;
-        }
-        case 1: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"EmailCell"];
-            if (self.employee.userName) {
-                cell.rightDetail.text = self.employee.userName;
-                UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDidTapEmail)];
-                [cell.rightDetail addGestureRecognizer:tapGestureRecognizer];
-            }
-            break;
-        }
-        case 2: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell"];
-            if (self.employee.contact) {
-                cell.rightDetail.text = self.employee.contact;
-                UIGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDidTapContactNumber)];
-                [cell.rightDetail addGestureRecognizer:tapGestureRecognizer];
-            }
-            break;
-        }
-        case 3: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"LikeCell"];
-            cell.rightDetail.text = self.employee.like;
-            break;
-        }
-        case 4: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"DislikeCell"];
-            cell.rightDetail.text = self.employee.dislike;
-            break;
-        }
-        default:
-            break;
-    }
+    MEEmployeeDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EmployeeDetailCell"];
     
-    cell.rightDetail.numberOfLines = 0;
-    [cell.rightDetail sizeToFit];
-    return cell;
+    [cell setUpForEmployee:self.employee
+          withLoadedAvatar:self.loadedAvatar
+                 andTarget:self
+               atIndexPath:indexPath];
+        return cell;
 }
 
 #pragma mark - Table view delegate

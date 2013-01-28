@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:kCompanyURL]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:COMPANY_HOST]]];
     
     // Why the height is not set with only UIViewAutoresizingFlexibleHeight without set back the frame ?
     self.webView.frame = self.view.frame;

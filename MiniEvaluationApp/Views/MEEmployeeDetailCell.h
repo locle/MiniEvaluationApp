@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MELeftImageRightDetailCell : UITableViewCell
+@interface MEEmployeeDetailCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *rightDetail;
 @property (weak, nonatomic) IBOutlet UIImageView *leftImage;
+
+- (void)setUpForEmployee:(MEEmployee *)employee
+        withLoadedAvatar:(UIImage *)loadedAvatar
+               andTarget:(id)target
+             atIndexPath:(NSIndexPath *)indexPath;
 
 @end

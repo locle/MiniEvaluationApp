@@ -15,7 +15,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
     }
     return self;
 }
@@ -29,6 +28,8 @@
     // Drawing code
 }
 */
+
+
 - (IBAction) touchInfoButton {
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(tabWasSelected:)]) {
         [self.contactButton setImage:[UIImage imageNamed:@"icon_contacts.png"] forState:UIControlStateNormal];

@@ -27,7 +27,7 @@
     CGRect bottomLocation = self.customTabBarView.frame;
     bottomLocation.origin.y = self.view.frame.size.height - self.customTabBarView.frame.size.height;
     [self.customTabBarView setFrame:bottomLocation];
-    
+    self.customTabBarView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     
     [self.view addSubview:self.customTabBarView];
 }
@@ -43,6 +43,7 @@
 		}
 	}
 }
+
 
 - (void)tabWasSelected:(NSInteger)index {
     UIViewController *selectedVC = [self.viewControllers objectAtIndex:index];

@@ -8,5 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MEStaffViewController : UITableViewController
+@interface MEStaffViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *staffTableView;
 @end

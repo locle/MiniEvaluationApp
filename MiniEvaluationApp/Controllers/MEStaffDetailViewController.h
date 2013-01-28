@@ -10,9 +10,10 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MFMessageComposeViewController.h>
 
-#import "MEEmployee.h"
 
-@interface MEStaffDetailViewController : UITableViewController <UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UIAlertViewDelegate>
+@interface MEStaffDetailViewController : UIViewController <UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *detailTableView;
 
 @property (nonatomic, strong) MEEmployee *employee;
 @property (nonatomic, strong) UIImage *loadedAvatar;
