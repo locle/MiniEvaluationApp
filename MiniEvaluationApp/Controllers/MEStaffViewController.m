@@ -130,13 +130,10 @@ NSString* const kVisitCountKey = @"visitCount";
     // Configure the cell...
     MEEmployee *employee = [self.employeeDictionary.allValues objectAtIndex:indexPath.row];
     [cell setUpWithEmployee:employee
+                atIndexPath:indexPath
    isHighestVisitedEmployee:[employee isEqual:self.highestVisitedEmployee]
                   andTarget:nil];
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.backgroundColor = (indexPath.row % 2) ? [UIColor gray2] : [UIColor gray3];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

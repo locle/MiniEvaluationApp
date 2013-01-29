@@ -11,6 +11,14 @@
 		8D4015F316AFF99800C4F95D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4015F216AFF99800C4F95D /* AddressBook.framework */; };
 		8D4015F516AFF9A900C4F95D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4015F416AFF9A900C4F95D /* AddressBookUI.framework */; };
 		8D4015FC16B0D11D00C4F95D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4015FB16B0D11D00C4F95D /* MessageUI.framework */; };
+		8D8F096216B7647B0099308E /* MEModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F096116B7647B0099308E /* MEModel.m */; };
+		8D8F097216B7A84E0099308E /* MEFacebookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F097116B7A84E0099308E /* MEFacebookUser.m */; };
+		8D8F0C7E16B7ADF70099308E /* SEMasonryView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8F0C7D16B7ADF70099308E /* SEMasonryView.framework */; };
+		8D8F0C8016B7AE000099308E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8F0C7F16B7AE000099308E /* FacebookSDK.framework */; };
+		8D8F0C8316B7AF7E0099308E /* MEDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8F0C8216B7AF7E0099308E /* MEDiscoveryViewController.m */; };
+		8D8F0C8D16B7C14C0099308E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8F0C8B16B7C11E0099308E /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8D8F0C9216B7C1C00099308E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8F0C9016B7C1AD0099308E /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8D8F0C9316B7C39F0099308E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8F0C8E16B7C1640099308E /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8D943E4116B636A000BFFC07 /* MEEmployeeDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D943E3A16B636A000BFFC07 /* MEEmployeeDetailCell.m */; };
 		8D943E4216B636A000BFFC07 /* MEEmployeeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D943E3C16B636A000BFFC07 /* MEEmployeeTableCell.m */; };
 		8D943E4316B636A000BFFC07 /* METabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D943E3E16B636A000BFFC07 /* METabBarView.m */; };
@@ -87,6 +95,17 @@
 		8D4015F216AFF99800C4F95D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		8D4015F416AFF9A900C4F95D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		8D4015FB16B0D11D00C4F95D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8D8F096016B7647B0099308E /* MEModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEModel.h; sourceTree = "<group>"; };
+		8D8F096116B7647B0099308E /* MEModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEModel.m; sourceTree = "<group>"; };
+		8D8F097016B7A84E0099308E /* MEFacebookUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEFacebookUser.h; path = Models/MEFacebookUser.h; sourceTree = "<group>"; };
+		8D8F097116B7A84E0099308E /* MEFacebookUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MEFacebookUser.m; path = Models/MEFacebookUser.m; sourceTree = "<group>"; };
+		8D8F0C7D16B7ADF70099308E /* SEMasonryView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SEMasonryView.framework; path = Vendors/SEMasonryView.framework; sourceTree = "<group>"; };
+		8D8F0C7F16B7AE000099308E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Vendors/FacebookSDK.framework; sourceTree = "<group>"; };
+		8D8F0C8116B7AF7E0099308E /* MEDiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEDiscoveryViewController.h; path = Controllers/MEDiscoveryViewController.h; sourceTree = "<group>"; };
+		8D8F0C8216B7AF7E0099308E /* MEDiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MEDiscoveryViewController.m; path = Controllers/MEDiscoveryViewController.m; sourceTree = "<group>"; };
+		8D8F0C8B16B7C11E0099308E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		8D8F0C8E16B7C1640099308E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		8D8F0C9016B7C1AD0099308E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		8D943E3916B636A000BFFC07 /* MEEmployeeDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEEmployeeDetailCell.h; path = Views/MEEmployeeDetailCell.h; sourceTree = "<group>"; };
 		8D943E3A16B636A000BFFC07 /* MEEmployeeDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MEEmployeeDetailCell.m; path = Views/MEEmployeeDetailCell.m; sourceTree = "<group>"; };
 		8D943E3B16B636A000BFFC07 /* MEEmployeeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEEmployeeTableCell.h; path = Views/MEEmployeeTableCell.h; sourceTree = "<group>"; };
@@ -194,6 +213,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D8F0C9316B7C39F0099308E /* AdSupport.framework in Frameworks */,
+				8D8F0C9216B7C1C00099308E /* Social.framework in Frameworks */,
+				8D8F0C8D16B7C14C0099308E /* Accounts.framework in Frameworks */,
 				8D4015FC16B0D11D00C4F95D /* MessageUI.framework in Frameworks */,
 				8D4015F516AFF9A900C4F95D /* AddressBookUI.framework in Frameworks */,
 				8D4015F316AFF99800C4F95D /* AddressBook.framework in Frameworks */,
@@ -201,12 +223,23 @@
 				8D94736416ACE0B40005F25D /* UIKit.framework in Frameworks */,
 				8D94736616ACE0B40005F25D /* Foundation.framework in Frameworks */,
 				8D94736816ACE0B40005F25D /* CoreGraphics.framework in Frameworks */,
+				8D8F0C7E16B7ADF70099308E /* SEMasonryView.framework in Frameworks */,
+				8D8F0C8016B7AE000099308E /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D8F095E16B7643D0099308E /* Superclass */ = {
+			isa = PBXGroup;
+			children = (
+				8D8F096016B7647B0099308E /* MEModel.h */,
+				8D8F096116B7647B0099308E /* MEModel.m */,
+			);
+			name = Superclass;
+			sourceTree = "<group>";
+		};
 		8D943EA616B6372B00BFFC07 /* SVPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +308,9 @@
 		8D94736216ACE0B40005F25D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8D8F0C9016B7C1AD0099308E /* Social.framework */,
+				8D8F0C8E16B7C1640099308E /* AdSupport.framework */,
+				8D8F0C8B16B7C11E0099308E /* Accounts.framework */,
 				8D4015FB16B0D11D00C4F95D /* MessageUI.framework */,
 				8D4015F416AFF9A900C4F95D /* AddressBookUI.framework */,
 				8D4015F216AFF99800C4F95D /* AddressBook.framework */,
@@ -319,10 +355,13 @@
 		8D94739416ACE0C50005F25D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8D8F095E16B7643D0099308E /* Superclass */,
 				8D943E5A16B636D600BFFC07 /* MEEmployee.h */,
 				8D943E5B16B636D600BFFC07 /* MEEmployee.m */,
 				8D943E5C16B636D600BFFC07 /* MEStaffAPIClient.h */,
 				8D943E5D16B636D600BFFC07 /* MEStaffAPIClient.m */,
+				8D8F097016B7A84E0099308E /* MEFacebookUser.h */,
+				8D8F097116B7A84E0099308E /* MEFacebookUser.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -345,6 +384,8 @@
 		8D94739616ACE0D30005F25D /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				8D8F0C7D16B7ADF70099308E /* SEMasonryView.framework */,
+				8D8F0C7F16B7AE000099308E /* FacebookSDK.framework */,
 				8D943EB116B6376F00BFFC07 /* AFNetworking */,
 				8D943EA616B6372B00BFFC07 /* SVPullToRefresh */,
 				8D9473CE16ACF06C0005F25D /* JSONKit */,
@@ -363,6 +404,8 @@
 				8D943E4A16B636B600BFFC07 /* MEStaffViewController.m */,
 				8D943E4B16B636B600BFFC07 /* METabBarController.h */,
 				8D943E4C16B636B600BFFC07 /* METabBarController.m */,
+				8D8F0C8116B7AF7E0099308E /* MEDiscoveryViewController.h */,
+				8D8F0C8216B7AF7E0099308E /* MEDiscoveryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -467,6 +510,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				he,
 			);
 			mainGroup = 8D94735416ACE0B40005F25D;
 			productRefGroup = 8D94736016ACE0B40005F25D /* Products */;
@@ -559,6 +603,9 @@
 				8D943ECB16B6376F00BFFC07 /* AFURLConnectionOperation.m in Sources */,
 				8D943ECC16B6376F00BFFC07 /* AFXMLRequestOperation.m in Sources */,
 				8D943ECD16B6376F00BFFC07 /* UIImageView+AFNetworking.m in Sources */,
+				8D8F096216B7647B0099308E /* MEModel.m in Sources */,
+				8D8F097216B7A84E0099308E /* MEFacebookUser.m in Sources */,
+				8D8F0C8316B7AF7E0099308E /* MEDiscoveryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,10 +694,17 @@
 		8D94739216ACE0B50005F25D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Downloads/Vendors/FacebookSDK\"",
+					"\"$(SRCROOT)/MiniEvaluationApp\"",
+					"\"$(SRCROOT)/MiniEvaluationApp/Vendors\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MiniEvaluationApp/MiniEvaluationApp-Prefix.pch";
 				INFOPLIST_FILE = "MiniEvaluationApp/MiniEvaluationApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -659,10 +713,17 @@
 		8D94739316ACE0B50005F25D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Downloads/Vendors/FacebookSDK\"",
+					"\"$(SRCROOT)/MiniEvaluationApp\"",
+					"\"$(SRCROOT)/MiniEvaluationApp/Vendors\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MiniEvaluationApp/MiniEvaluationApp-Prefix.pch";
 				INFOPLIST_FILE = "MiniEvaluationApp/MiniEvaluationApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

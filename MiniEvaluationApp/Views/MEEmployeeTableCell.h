@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *subTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *highestVisitedMark;
 
-- (void)setUpWithEmployee:(MEEmployee *)employee isHighestVisitedEmployee:(BOOL)isHighestVisitedEmployee andTarget:(id)target;
+- (void)setUpWithEmployee:(MEEmployee *)employee atIndexPath:(NSIndexPath *)indexPath isHighestVisitedEmployee:(BOOL)isHighestVisitedEmployee andTarget:(id)target;
 
 
 @end

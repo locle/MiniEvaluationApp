@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="LNn-Rw-Pte">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -16,23 +16,65 @@
                     </tabBar>
                     <connections>
                         <segue destination="a5M-fv-dMT" kind="relationship" relationship="viewControllers" id="CWJ-14-hwn"/>
-                        <segue destination="LNn-Rw-Pte" kind="relationship" relationship="viewControllers" id="org-ct-dxQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
+        <!--Discovery View Controller-->
+        <scene sceneID="gCg-d6-YP7">
+            <objects>
+                <viewController id="Cvv-Ep-2C5" customClass="MEDiscoveryViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tRf-zc-LUS">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rGb-cv-jj9">
+                                <rect key="frame" x="120" y="186" width="65" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="authButtonPressed:" destination="Cvv-Ep-2C5" eventType="touchUpInside" id="pSX-hV-mUQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bri-YV-BER">
+                                <rect key="frame" x="30" y="20" width="244" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="t22-a9-6cC"/>
+                    <connections>
+                        <outlet property="buttonLoginLogout" destination="rGb-cv-jj9" id="Y9U-zJ-iRQ"/>
+                        <outlet property="textNoteOrLink" destination="bri-YV-BER" id="Vom-bz-WmI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G5t-Yh-iF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1391" y="-17"/>
+        </scene>
         <!--Company View Controller - 2359 Media-->
         <scene sceneID="WXe-64-EGh">
             <objects>
                 <viewController id="8XM-9S-lqY" customClass="MECompanyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1dY-ys-dVq">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="pW2-IF-bYb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
@@ -46,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8W-BR-D6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1541" y="-17"/>
+            <point key="canvasLocation" x="1914" y="-78"/>
         </scene>
         <!--Staff Detail View Controller-->
         <scene sceneID="4zf-zV-lhm">
@@ -326,12 +368,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8XM-9S-lqY" kind="relationship" relationship="rootViewController" id="d7G-ET-SB1"/>
+                        <segue destination="Cvv-Ep-2C5" kind="relationship" relationship="rootViewController" id="cEf-2F-wbK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPD-86-Cgv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971" y="-17"/>
+            <point key="canvasLocation" x="619" y="-241"/>
         </scene>
     </scenes>
     <resources>
@@ -347,6 +389,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MECompanyViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MEDiscoveryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MEDiscoveryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="authButtonPressed:"/>
+                <relationship kind="outlet" name="buttonLoginLogout" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textNoteOrLink" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="MEEmployeeDetailCell" superclassName="UITableViewCell">

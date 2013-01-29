@@ -27,7 +27,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setUpWithEmployee:(MEEmployee *)employee isHighestVisitedEmployee:(BOOL)isHighestVisitedEmployee andTarget:(id)target {
+- (void)setUpWithEmployee:(MEEmployee *)employee atIndexPath:(NSIndexPath *)indexPath isHighestVisitedEmployee:(BOOL)isHighestVisitedEmployee andTarget:(id)target {
     self.title.text = employee.name;
     if ([employee.gender isEqualToString:@"female"]) {
         self.title.textColor = [UIColor orange1];
@@ -49,7 +49,7 @@
     } else {
         self.highestVisitedMark.image = nil;
     }
-
+    self.contentView.backgroundColor = (indexPath.row % 2) ? [UIColor gray2] : [UIColor gray3];
 }
 
 

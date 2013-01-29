@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface MEAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -14,9 +15,12 @@
 
 @property (nonatomic, strong) UITabBarController *tabBarController;
 
+@property (strong, nonatomic) FBSession *session;
 
 
+extern NSString *const FBSessionStateChangedNotification;
 
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 
 @end
 
