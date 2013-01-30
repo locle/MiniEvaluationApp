@@ -10,7 +10,7 @@
 
 
 @implementation MEAppDelegate
-NSString *const FBSessionStateChangedNotification = @"com.2359media.Login:FBSessionStateChangedNotification";
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -52,17 +52,20 @@ NSString *const FBSessionStateChangedNotification = @"com.2359media.Login:FBSess
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    [self.session close];
 }
 
 #pragma mark - FacebookSDK
 
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    // attempt to extract a token from the url
-    return [self.session handleOpenURL:url];
+//- (BOOL)application:(UIApplication *)application
+//            openURL:(NSURL *)url
+//  sourceApplication:(NSString *)sourceApplication
+//         annotation:(id)annotation {
+//    // attempt to extract a token from the url
+//    return [self.session handleOpenURL:url];
+//}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [FBSession.activeSession handleOpenURL:url];
 }
 
 /*
@@ -87,9 +90,9 @@ NSString *const FBSessionStateChangedNotification = @"com.2359media.Login:FBSess
             break;
     }
     
-//    [[NSNotificationCenter defaultCenter]
-//     postNotificationName:FBSessionStateChangedNotification
-//     object:session];
+    //    [[NSNotificationCenter defaultCenter]
+    //     postNotificationName:FBSessionStateChangedNotification
+    //     object:session];
     
     if (error) {
         UIAlertView *alertView = [[UIAlertView alloc]
@@ -108,7 +111,6 @@ NSString *const FBSessionStateChangedNotification = @"com.2359media.Login:FBSess
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
     NSArray *permissions = [[NSArray alloc] initWithObjects:
                             @"user_status",
-                            @"friend_status",
                             nil];
     
     return [FBSession openActiveSessionWithReadPermissions:permissions
@@ -121,6 +123,5 @@ NSString *const FBSessionStateChangedNotification = @"com.2359media.Login:FBSess
                                                                  error:error];
                                          }];
 }
-
 @end
 

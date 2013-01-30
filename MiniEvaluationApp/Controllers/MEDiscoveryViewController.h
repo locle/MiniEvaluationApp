@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SEMasonryView/SEMasonryView.h>
 
-@interface MEDiscoveryViewController : UIViewController
+@interface MEDiscoveryViewController : UIViewController <SEMasonryViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonLoginLogout;
 @property (weak, nonatomic) IBOutlet UILabel *textNoteOrLink;

@@ -15,11 +15,6 @@
 
 @property (nonatomic, strong) UITabBarController *tabBarController;
 
-@property (strong, nonatomic) FBSession *session;
-
-
-extern NSString *const FBSessionStateChangedNotification;
-
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 
 @end
