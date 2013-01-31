@@ -18,9 +18,6 @@
 @end
 
 @implementation MEDiscoveryViewController
-- (void)awakeFromNib {
-    [SEMasonryView class];
-}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,6 +31,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:@"object" forKey:@"key"];
+    DLog(@"%@", [dict stringForKey:@"key"]);
     
     [self updateView];
 //    MEAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
@@ -276,5 +275,8 @@ int pageCounter = 1;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tapped!" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }
+
+#pragma mark - CoreLocation
+
 
 @end

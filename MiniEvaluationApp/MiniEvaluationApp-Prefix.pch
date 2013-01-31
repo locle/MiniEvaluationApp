@@ -28,7 +28,7 @@
 
 //Vendors
 #import "AFNetworking.h"
-#import "JSONKit.h"
+#import <SEMasonryView/JSONKit.h>
 #import "SVPullToRefresh.h"
 
 //#ifdef ENABLE_DEBUG

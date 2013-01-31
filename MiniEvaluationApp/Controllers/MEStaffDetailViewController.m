@@ -127,7 +127,9 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
+    //Code organization tips: check title instead of buttonIndex for alertView handling
+    NSString *pressedButtonTitle = [[alertView buttonTitleAtIndex:buttonIndex] lowercaseString];
+    if ([pressedButtonTitle isEqualToString:@"ok"]) {
         CFErrorRef  anError = NULL;
         ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, &anError);
         ABRecordRef newContact = ABPersonCreate();
